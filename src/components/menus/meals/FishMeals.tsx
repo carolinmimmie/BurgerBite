@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { IMenu } from "../../../interfaces";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
-import { IMenu } from "../../../interfaces";
+import Context from "../../../context/Context";
 interface IProps {
-  meatBurgers: IMenu;
+  fishMeals: IMenu;
 }
-const MeatBurgers = ({ meatBurgers }: IProps) => {
+
+const FishMeals = ({ fishMeals }: IProps) => {
+  const { orderedProduct, productList, setProductList } = useContext(Context);
   return (
     <div className="menucard-container">
-      <Card sx={{ maxWidth: 350, minHeight: 360 }}>
+      <Card sx={{ maxWidth: 400, minHeight: 400 }}>
         <CardMedia
           component="img"
           alt="green iguana"
@@ -19,19 +22,21 @@ const MeatBurgers = ({ meatBurgers }: IProps) => {
         />
         <CardContent sx={{ height: 80 }}>
           <Typography gutterBottom variant="h6" component="div">
-            {meatBurgers.product}
+            {fishMeals.product}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {meatBurgers.description}
+            {fishMeals.description}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add</Button>
-          <Button size="small">{meatBurgers.price}</Button>
+          <Button size="small" onClick={() => orderedProduct(fishMeals.id)}>
+            Add
+          </Button>
+          <Button size="small">{fishMeals.price}</Button>
         </CardActions>
       </Card>
     </div>
   );
 };
 
-export default MeatBurgers;
+export default FishMeals;

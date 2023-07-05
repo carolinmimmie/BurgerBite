@@ -1,18 +1,16 @@
-import React from "react";
 
+import React from "react";
+import { IMenu } from "../../../interfaces";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
-import { IMenu } from "../../../interfaces";
 interface IProps {
-  chickenBurgers: IMenu;
+  fishMiniMeals: IMenu;
 }
-
-const ChickenBurgers = ({ chickenBurgers }: IProps) => {
-  return (
-    <div>
-      <div className="menucard-container">
+const FishMiniMeals = ({ fishMiniMeals }: IProps) => {
+    return (
+        <div className="menucard-container">
         <Card sx={{ maxWidth: 350, minHeight: 360 }}>
           <CardMedia
             component="img"
@@ -22,28 +20,19 @@ const ChickenBurgers = ({ chickenBurgers }: IProps) => {
           />
           <CardContent sx={{ height: 80 }}>
             <Typography gutterBottom variant="h6" component="div">
-              {chickenBurgers.product}
+              { fishMiniMeals.product}
             </Typography>
-            <Typography
-              sx={{ textTransform: "lowercase" }}
-              variant="body2"
-              color="text.secondary"
-            >
-              {chickenBurgers.description}
+            <Typography variant="body2" color="text.secondary">
+              { fishMiniMeals.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button sx={{ color:"#35464f"}}size="small" className="add">
-              Add
-            </Button>
-            <Button sx={{ color: "red" }} size="small" className="price">
-              {chickenBurgers.price + " " + ":-"}
-            </Button>
+            <Button size="small">Add</Button>
+            <Button size="small">{ fishMiniMeals.price}</Button>
           </CardActions>
         </Card>
       </div>
-    </div>
-  );
-};
+    )
+}
 
-export default ChickenBurgers;
+export default FishMiniMeals

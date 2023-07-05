@@ -1,10 +1,10 @@
 import React from "react";
-import AppBar from "../appbar/AppBar";
+import PermanentDrawerRight from "../shoppingcart/Cart";
 
 const Addons = () => {
   return (
     <div>
-      <AppBar></AppBar>
+       <PermanentDrawerRight></PermanentDrawerRight>
     </div>
   );
 };

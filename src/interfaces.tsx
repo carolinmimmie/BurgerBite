@@ -5,15 +5,21 @@ interface IMenu {
   category: string;
   description: string;
   ordered: boolean;
-  price: string;
+  price: number;
   product: string;
   subcategory: string;
-  takeaway: boolean;
 }
 
 interface IContext {
   productList: IMenu[];
   setProductList: Dispatch<React.SetStateAction<IMenu[]>>;
+  orderedProduct: (id: string) => void;
+  unOrderedProduct: (id: string) => void;
+  cartList: IMenu[];
+  setCartList: Dispatch<React.SetStateAction<IMenu[]>>;
+}
+interface IProductCard {
+  product: IMenu;
 }
 
-export type { IMenu, IContext };
+export type { IMenu, IContext, IProductCard };

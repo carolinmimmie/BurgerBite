@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { IMenu } from "../../../interfaces";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
-import { IMenu } from "../../../interfaces";
+import Context from "../../../context/Context";
+import { addToCartCollection } from "../../../Api";
 interface IProps {
-  meatBurgers: IMenu;
+  meatMiniMeals: IMenu;
 }
-const MeatBurgers = ({ meatBurgers }: IProps) => {
+
+const MeatMiniMeals = ({ meatMiniMeals }: IProps) => {
+  const { cartList, setCartList } = useContext(Context);
+  const updateCartCollection = (meatMiniMeals: IMenu) => {
+    const newArray: IMenu[] = [...cartList, meatMiniMeals];
+    setCartList(newArray);
+  };
+
   return (
     <div className="menucard-container">
       <Card sx={{ maxWidth: 350, minHeight: 360 }}>
@@ -19,19 +28,27 @@ const MeatBurgers = ({ meatBurgers }: IProps) => {
         />
         <CardContent sx={{ height: 80 }}>
           <Typography gutterBottom variant="h6" component="div">
-            {meatBurgers.product}
+            {meatMiniMeals.product}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {meatBurgers.description}
+            {meatMiniMeals.description}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add</Button>
-          <Button size="small">{meatBurgers.price}</Button>
+          <Button
+            size="small"
+            onClick={() => {
+              addToCartCollection(meatMiniMeals);
+              updateCartCollection(meatMiniMeals);
+            }}
+          >
+            Add
+          </Button>
+          <Button size="small">{meatMiniMeals.price}</Button>
         </CardActions>
       </Card>
     </div>
   );
 };
 
-export default MeatBurgers;
+export default MeatMiniMeals;

@@ -5,13 +5,15 @@ import Landingpage from "./components/landingpage/Landingpage";
 import MainMenu from "./components/menus/MainMenu";
 import { resourceLimits } from "worker_threads";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Meals from "./components/menus/Meals";
+
 import Burgers from "./components/menus/burgers/Burgers";
-import Addons from "./components/menus/Addons";
-import Drinks from "./components/menus/Drinks";
-import Desserts from "./components/menus/Desserts";
-import MiniMeals from "./components/menus/MiniMeals";
+import Addons from "./components/menus/Snacks";
+import Drinks from "./components/menus/drinks/Drinks";
+import Desserts from "./components/menus/desserts/Desserts";
+import MiniMeals from "./components/menus/minimeals/MiniMeals";
 import { ContextProvider } from "./context/Context";
+import Meals from "./components/menus/meals/Meals";
+import Snacks from "./components/menus/Snacks";
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
           <Route path="/Meals" element={<Meals></Meals>} />
           <Route path="/MiniMeals" element={<MiniMeals></MiniMeals>} />
           <Route path="/Burgers" element={<Burgers></Burgers>} />
-          <Route path="/Addons" element={<Addons></Addons>} />
+          <Route path="/Snacks" element={<Snacks></Snacks>} />
           <Route path="/Drinks" element={<Drinks></Drinks>} />
           <Route path="/Desserts" element={<Desserts></Desserts>} />
         </Routes>

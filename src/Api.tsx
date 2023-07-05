@@ -1,14 +1,15 @@
 import {
-    addDoc,
-    collection,
-    deleteDoc,
-    doc,
-    getDocs,
-    query,
-    Timestamp,
-    updateDoc,
-    where,
-  } from "firebase/firestore";
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  Timestamp,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { useEffect } from "react";
 import { db } from "./firestore-config";
 import { IMenu } from "./interfaces";
 
@@ -23,54 +24,32 @@ export const getAllProducts = async () => {
   }));
 };
 
-// const menuCollectionRef = collection(db, "Menu");
+const CartCollectionRef = collection(db, "Cart Collection");
 
-// // Meals
-// export const getMeals = async () => {
-//     const q = query(menuCollectionRef, where("category", "==", "Meals"));
-  
+export const getCartCollection = async () => {
+  const data = await getDocs(CartCollectionRef);
+  return data.docs.map((doc) => ({
+    ...(doc.data() as IMenu),
 
-//     const data = await getDocs(q);
-//     return data.docs.map((doc) => ({
-//       ...(doc.data() as IMenu),
-  
-//       id: doc.id,
-//     }));
-//   };
-// //Chicken
-//   export const getChickenProducts = async () => {
-//     const q = query(menuCollectionRef, where("subcategory", "==", "Fish"));
-  
-//     const data = await getDocs(q);
-//     return data.docs.map((doc) => ({
-//       ...(doc.data() as IMenu),
-  
-//       id: doc.id,
-//     }));
-//   };
-// //Fish
-// export const getFishProducts = async () => {
-//     const q = query(menuCollectionRef, where("subcategory", "==", "Fish"));
-  
-//     const data = await getDocs(q);
-//     return data.docs.map((doc) => ({
-//       ...(doc.data() as IMenu),
-  
-//       id: doc.id,
-//     }));
-//   };
-//   //Vegetarian
-//   export const getVegetarianProducts = async () => {
-//     const q = query(menuCollectionRef, where("subcategory", "==", "Vegetarian"));
-  
-//     const data = await getDocs(q);
-//     return data.docs.map((doc) => ({
-//       ...(doc.data() as IMenu),
-  
-//       id: doc.id,
-//     }));
-//   };
+    id: doc.id,
+  }));
+};
+
+export const addToCartCollection = async (product: IMenu) => {
+  await addDoc(CartCollectionRef, {
+    category: product.category,
+    description: product.description,
+    ordered: product.ordered,
+    price: product.price,
+    product: product.product,
+    subcategory: product.subcategory,
+  });
+  console.log();
+  // getAllProducts();
+};
 
 
-  
-
+export const deleteFromCart = async (id: string) => {
+  await deleteDoc(doc(CartCollectionRef, id));
+  // getCartCollection();
+};

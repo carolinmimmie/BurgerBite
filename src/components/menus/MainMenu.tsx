@@ -1,51 +1,43 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-import AppBar from "../appbar/AppBar";
 import Footer from "../footer/Footer";
-
+import PermanentDrawerRight from "../shoppingcart/Cart";
 
 const MainMenu = () => {
-  
-let navigationMeals = useNavigate();
-const handleClickMeals = () => {
-  navigationMeals("/Meals");
+  let navigationMeals = useNavigate();
+  const handleClickMeals = () => {
+    navigationMeals("/Meals");
   };
 
-  
-  let navigationMiniMeals= useNavigate();
+  let navigationMiniMeals = useNavigate();
   const handleClickMiniMeals = () => {
     navigationMiniMeals("/MiniMeals");
-  
-    };
+  };
 
   let navigationBurgers = useNavigate();
   const handleClickBurgers = () => {
     navigationBurgers("/Burgers");
-  
-    };
+  };
 
   let navigationAddons = useNavigate();
-  const handleClickAddons= () => {
-    navigationAddons("/Addons");
-  
-    };
+  const handleClickAddons = () => {
+    navigationAddons("/Snacks");
+  };
 
   let navigationDrinks = useNavigate();
   const handleClickDrinks = () => {
     navigationDrinks("/Drinks");
-  
-    };
+  };
 
   let navigationDesserts = useNavigate();
   const handleClickDesserts = () => {
     navigationDesserts("/Desserts");
-  
-    };
+  };
 
   return (
     <div className="container">
-      <AppBar></AppBar>
+      {/* <AppBar></AppBar> */}
+      <PermanentDrawerRight></PermanentDrawerRight>
       <div className="menu-container">
         <div className="hero-conatiner">
           <div className="menuhero-one" onClick={handleClickMeals}>
@@ -63,7 +55,7 @@ const handleClickMeals = () => {
           </div>
 
           <div className="menuhero-four" onClick={handleClickAddons}>
-            <div className="menuhero-text">Addons</div>
+            <div className="menuhero-text">Snacks</div>
           </div>
         </div>
 

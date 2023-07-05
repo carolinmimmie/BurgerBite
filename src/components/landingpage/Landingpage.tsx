@@ -1,12 +1,21 @@
 import React from "react";
-import HideAppBar from "../appbar/AppBar";
-import Hero from "./Hero";
-
+import { useNavigate } from "react-router-dom";
 
 const Landingpage = () => {
+  let navigation = useNavigate();
+
+  const handleClick = () => {
+    navigation("/MainMenu");
+  };
+
   return (
-    <div>
-<Hero></Hero>
+    <div className="landingpage-container" onClick={handleClick}>
+      <img
+        className="logo"
+        src="https://www.thebigkahuna.gr/images/parallax/logobigkahuna.png"
+        alt=""
+      />
+      <h6 className="landingpage-text">KLICKA HÄR FÖR ATT STARTA</h6>
     </div>
   );
 };
