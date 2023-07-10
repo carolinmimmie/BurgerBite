@@ -7,29 +7,31 @@ import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import Context from "../../../context/Context";
 import { addToCartCollection } from "../../../Api";
 interface IProps {
-  chickenMiniMeals: IMenu;
+  tea: IMenu;
 }
 
-const ChickenMiniMeals = ({ chickenMiniMeals }: IProps) => {
+const Tea = ({ tea }: IProps) => {
   const { cartList, setCartList } = useContext(Context);
-  const updateCartCollection = (chickenMiniMeals: IMenu) => {
-    const newArray: IMenu[] = [...cartList, chickenMiniMeals];
+  const updateCartCollection = (tea: IMenu) => {
+    const newArray: IMenu[] = [...cartList, tea];
     setCartList(newArray);
   };
+
   return (
     <Card className="card-container">
-      <CardMedia      sx={{ width: 200, margin: "auto" }}
-        className="card-image"
+      <CardMedia
+        className="test"
+        sx={{ width: 200, margin: "auto" }}
         component="img"
         alt="green iguana"
         // height="300"
-        image="https://www.svgrepo.com/show/280969/chicken.svg"
+        image="https://www.svgrepo.com/show/475139/tea.svg"
       />
       <CardContent className="card" sx={{ height: 90 }}>
         <Typography gutterBottom variant="h6" component="div">
-          {chickenMiniMeals.product}
+          {tea.product}
         </Typography>
-        <Typography variant="body2">{chickenMiniMeals.description}</Typography>
+        <Typography variant="body2">{tea.description}</Typography>
       </CardContent>
       <CardActions className="card-content">
         <Button
@@ -37,18 +39,18 @@ const ChickenMiniMeals = ({ chickenMiniMeals }: IProps) => {
           className="card-product"
           size="small"
           onClick={() => {
-            addToCartCollection(chickenMiniMeals);
-            updateCartCollection(chickenMiniMeals);
+            addToCartCollection(tea);
+            updateCartCollection(tea);
           }}
         >
           Add
         </Button>
         <Button size="small" className="card-price" sx={{ color: "red" }}>
-          {chickenMiniMeals.price + " " + "KR"}
+          {tea.price + " " + "KR"}
         </Button>
       </CardActions>
     </Card>
   );
 };
 
-export default ChickenMiniMeals;
+export default Tea;

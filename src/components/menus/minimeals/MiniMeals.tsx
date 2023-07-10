@@ -9,7 +9,7 @@ import FishMiniMeals from "./FishMiniMeals";
 import ChickenMiniMeals from "./ChickenMiniMeals";
 import MeatMiniMeals from "./MeatMiniMeals";
 import VegetarianMiniMeals from "./VegetarianMiniMeals";
-import PermanentDrawerRight from "../../shoppingcart/Cart";
+import PermanentDrawerRight from "../../header/Cart";
 const MiniMeals = () => {
   const { productList } = useContext(Context);
 
@@ -34,41 +34,49 @@ const MiniMeals = () => {
   return (
     <div>
       <PermanentDrawerRight></PermanentDrawerRight>
-      <div className="bg">
-        <section className="border">
+      <div className="cards-container">
+        <div className="button-container">
           <button>
-            <HashLink smooth to="#MeatMiniMeals">
-              kött
+            <HashLink className="links" smooth to="#MeatMiniMeals">
+              Meat
             </HashLink>
           </button>
           <button>
-            <HashLink smooth to="#ChickenMiniMeals">
-              kyckling
+            <HashLink className="links" smooth to="#ChickenMiniMeals">
+              Chicken
             </HashLink>
           </button>
           <button>
-            <HashLink smooth to="#FishMiniMeals">
-              fisk
+            <HashLink className="links" smooth to="#FishMiniMeals">
+              Fish
             </HashLink>
           </button>
           <button>
-            <HashLink smooth to="#VegetarianMiniMeals">
-              veg
+            <HashLink className="links" smooth to="#VegetarianMiniMeals">
+              Vegetarian
             </HashLink>
           </button>
+        </div>
 
-          <div className="title"></div>
-          <div className="center">
-            <h3 id="MeatMiniMeals">Meat MiniMeals</h3>
-            <div className="lib-books-container">{meatMiniMeals}</div>
-            <h3 id="ChickenMiniMeals">Chicken MiniMeals</h3>
-            <div className="lib-books-container">{chickenMiniMeals}</div>
-            <h3 id="FishMiniMeals">Fish MiniMeals</h3>
-            <div className="lib-books-container">{fishMiniMeals}</div>
-            <h3 id="VegetarianMiniMeals">Vegetarian MiniMeals</h3>
-            <div className="lib-books-container">{vegetarianMiniMeals}</div>
-          </div>
-        </section>
+        <div className="title"></div>
+        <div className="center">
+          <h3 id="MeatMiniMeals" className="category-text">
+            Meat MiniMeals
+          </h3>
+          <div className="menu-container">{meatMiniMeals}</div>
+          <h3 id="ChickenMiniMeals" className="category-text">
+            Chicken MiniMeals
+          </h3>
+          <div className="menu-container">{chickenMiniMeals}</div>
+          <h3 id="FishMiniMeals" className="category-text">
+            Fish MiniMeals
+          </h3>
+          <div className="menu-container">{fishMiniMeals}</div>
+          <h3 id="VegetarianMiniMeals" className="category-text">
+            Vegetarian MiniMeals
+          </h3>
+          <div className="menu-container">{vegetarianMiniMeals}</div>
+        </div>
       </div>
     </div>
   );

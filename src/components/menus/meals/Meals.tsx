@@ -9,7 +9,7 @@ import VegetarianMeals from "./VegetarianMeals";
 import FishMeals from "./FishMeals";
 import ChickenMeals from "./ChickenMeals";
 import MeatMeals from "./MeatMeals";
-import PermanentDrawerRight from "../../shoppingcart/Cart";
+import PermanentDrawerRight from "../../header/Cart";
 const Meals = () => {
   const { productList } = useContext(Context);
 
@@ -33,48 +33,47 @@ const Meals = () => {
     <div>
       <PermanentDrawerRight></PermanentDrawerRight>
       <div className="cards-container">
-      <div className="button-container">
+        <div className="button-container">
           <button>
             <HashLink className="links" smooth to="#MeatMeals">
-              kött
+              Meat
             </HashLink>
           </button>
           <button>
             <HashLink className="links" smooth to="#ChickenMeals">
-              kyckling
+              Chicken
             </HashLink>
           </button>
           <button>
             <HashLink className="links" smooth to="#FishMeals">
-              fisk
+              Fish
             </HashLink>
           </button>
           <button>
             <HashLink className="links" smooth to="#VegetarianMeals">
-              veg
+              Vegetarian
             </HashLink>
           </button>
-          </div>
-          <div className="title"></div>
-          <div className="center">
-            <h3 id="MeatMeals" className="category-text">
-              MeatMeals
-            </h3>
-            <div className="items-container">{meatMeals}</div>
-            <h3 id="ChickenMeals" className="category-text">
-              ChickenMeals
-            </h3>
-            <div className="items-container">{chickenMeals}</div>
-            <h3 id="FishMeals" className="category-text">
-              FishMeals
-            </h3>
-            <div className="items-container">{fishMeals}</div>
-            <h3 id="VegetarianMeals" className="category-text">
-              VegetarianMeals
-            </h3>
-            <div className="items-container">{vegetarianMeals}</div>
-          </div>
-   
+        </div>
+        <div className="title"></div>
+        <div className="center">
+          <h3 id="MeatMeals" className="category-text">
+            MeatMeals
+          </h3>
+          <div className="menu-container">{meatMeals}</div>
+          <h3 id="ChickenMeals" className="category-text">
+            ChickenMeals
+          </h3>
+          <div className="menu-container">{chickenMeals}</div>
+          <h3 id="FishMeals" className="category-text">
+            FishMeals
+          </h3>
+          <div className="menu-container">{fishMeals}</div>
+          <h3 id="VegetarianMeals" className="category-text">
+            VegetarianMeals
+          </h3>
+          <div className="menu-container">{vegetarianMeals}</div>
+        </div>
       </div>
     </div>
   );

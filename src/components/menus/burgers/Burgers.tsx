@@ -5,7 +5,7 @@ import MeatBurgers from "./MeatBurgers";
 import FishBurgers from "./FishBurgers";
 import VegetarianBurgers from "./VegetarianBurgers";
 import { HashLink } from "react-router-hash-link";
-import PermanentDrawerRight from "../../shoppingcart/Cart";
+import PermanentDrawerRight from "../../header/Cart";
 const Burgers = () => {
   const { productList } = useContext(Context);
 
@@ -30,38 +30,46 @@ const Burgers = () => {
       <PermanentDrawerRight></PermanentDrawerRight>
       <div className="cards-container">
         <div className="button-container">
-        <button>
-          <HashLink smooth to="#MeatBurgers">
-            kött
-          </HashLink>
-        </button>
-        <button>
-          <HashLink smooth to="#ChickenBurgers">
-            kyckling
-          </HashLink>
-        </button>
-        <button>
-          <HashLink smooth to="#FishBurgers">
-            fisk
-          </HashLink>
-        </button>
-        <button>
-          <HashLink smooth to="#VegetarianBurgers">
-            veg
-          </HashLink>
-        </button>
+          <button>
+            <HashLink className="links" smooth to="#MeatBurgers">
+              Meat
+            </HashLink>
+          </button>
+          <button>
+            <HashLink className="links" smooth to="#ChickenBurgers">
+              Chicken
+            </HashLink>
+          </button>
+          <button>
+            <HashLink className="links" smooth to="#FishBurgers">
+              Fish
+            </HashLink>
+          </button>
+          <button>
+            <HashLink className="links" smooth to="#VegetarianBurgers">
+              Vegetarian
+            </HashLink>
+          </button>
         </div>
 
         <div className="title"></div>
         <div className="center">
-          <h3 id="MeatBurgers">MeatBurgers</h3>
-          <div className="lib-books-container">{meatBurgers}</div>
-          <h3 id="ChickenBurgers">ChickenBurgers</h3>
-          <div className="lib-books-container">{chickenBurgers}</div>
-          <h3 id="FishBurgers">FishBurgers</h3>
-          <div className="lib-books-container">{fishBurgers}</div>
-          <h3 id="VegetarianBurgers">VegetarianBurgers</h3>
-          <div className="lib-books-container">{vegetarianBurgers}</div>
+          <h3 id="MeatBurgers" className="category-text">
+            MeatBurgers
+          </h3>
+          <div className="menu-container">{meatBurgers}</div>
+          <h3 id="ChickenBurgers" className="category-text">
+            ChickenBurgers
+          </h3>
+          <div className="menu-container">{chickenBurgers}</div>
+          <h3 id="FishBurgers" className="category-text">
+            FishBurgers
+          </h3>
+          <div className="menu-container">{fishBurgers}</div>
+          <h3 id="VegetarianBurgers" className="category-text">
+            VegetarianBurgers
+          </h3>
+          <div className="menu-container">{vegetarianBurgers}</div>
         </div>
       </div>
     </div>

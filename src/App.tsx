@@ -7,13 +7,13 @@ import { resourceLimits } from "worker_threads";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Burgers from "./components/menus/burgers/Burgers";
-import Addons from "./components/menus/Snacks";
+import Addons from "./components/menus/snacks/Snacks";
 import Drinks from "./components/menus/drinks/Drinks";
 import Desserts from "./components/menus/desserts/Desserts";
 import MiniMeals from "./components/menus/minimeals/MiniMeals";
 import { ContextProvider } from "./context/Context";
 import Meals from "./components/menus/meals/Meals";
-import Snacks from "./components/menus/Snacks";
+import Snacks from "./components/menus/snacks/Snacks";
 
 function App() {
   return (

@@ -5,38 +5,49 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import Context from "../../../context/Context";
+import { addToCartCollection } from "../../../Api";
 interface IProps {
   chickenMeals: IMenu;
 }
 
 const ChickenMeals = ({ chickenMeals }: IProps) => {
-  const { orderedProduct, productList, setProductList } = useContext(Context);
+  const { cartList, setCartList } = useContext(Context);
+  const updateCartCollection = (chickenMeals: IMenu) => {
+    const newArray: IMenu[] = [...cartList, chickenMeals];
+    setCartList(newArray);
+  };
   return (
-    <div className="menucard-container">
-      <Card sx={{ maxWidth: 400, minHeight: 400 }}>
-        <CardMedia
-          component="img"
-          alt="green iguana"
-          height="300"
-          image="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
-        />
-        <CardContent sx={{ height: 80 }}>
-          <Typography gutterBottom variant="h6" component="div">
-            {chickenMeals.product}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {chickenMeals.description}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" onClick={() => orderedProduct(chickenMeals.id)}>
-            Add
-          </Button>
-          <Button size="small">{chickenMeals.price}</Button>
-        </CardActions>
-      </Card>
-    </div>
+    <Card className="card-container">
+      <CardMedia        sx={{ width: 200, margin: "auto" }}
+        component="img"
+        alt="green iguana"
+        // height="300"
+        image="https://www.svgrepo.com/show/280969/chicken.svg"
+      />
+      <CardContent className="card" sx={{ height: 90 }}>
+        <Typography gutterBottom variant="h6" component="div">
+          {chickenMeals.product}
+        </Typography>
+        <Typography variant="body2">{chickenMeals.description}</Typography>
+      </CardContent>
+      <CardActions className="card-content">
+        <Button   sx={{ color: "#009900" }}
+          className="card-product"
+          size="small"
+          onClick={() => {
+            addToCartCollection(chickenMeals);
+            updateCartCollection(chickenMeals);
+          }}
+        >
+          Add
+        </Button>
+        <Button size="small" className="card-price" sx={{ color: "red" }}>
+          {chickenMeals.price + " " + "KR"}
+        </Button>
+      </CardActions>
+    </Card>
+  
   );
 };
-
+ 
 export default ChickenMeals;

@@ -7,13 +7,13 @@ import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import Context from "../../../context/Context";
 import { addToCartCollection } from "../../../Api";
 interface IProps {
-  meatMiniMeals: IMenu;
+  shakes: IMenu;
 }
 
-const MeatMiniMeals = ({ meatMiniMeals }: IProps) => {
+const Shakes = ({ shakes }: IProps) => {
   const { cartList, setCartList } = useContext(Context);
-  const updateCartCollection = (meatMiniMeals: IMenu) => {
-    const newArray: IMenu[] = [...cartList, meatMiniMeals];
+  const updateCartCollection = (shakes: IMenu) => {
+    const newArray: IMenu[] = [...cartList, shakes];
     setCartList(newArray);
   };
 
@@ -23,31 +23,31 @@ const MeatMiniMeals = ({ meatMiniMeals }: IProps) => {
       component="img"
       alt="green iguana"
       // height="300"
-      image="https://www.svgrepo.com/show/396220/cow-face.svg"
+      image="https://www.svgrepo.com/show/49011/melon-juice.svg"
     />
     <CardContent className="card" sx={{ height: 90 }}>
       <Typography gutterBottom variant="h6" component="div">
-        {meatMiniMeals.product}
+        {shakes.product}
       </Typography>
-      <Typography variant="body2">{meatMiniMeals.description}</Typography>
+      <Typography variant="body2">{shakes.description}</Typography>
     </CardContent>
     <CardActions className="card-content">
-      <Button   sx={{ color: "#009900" }}
+      <Button sx={{ color: "#35464f" }}
         className="card-product"
         size="small"
         onClick={() => {
-          addToCartCollection(meatMiniMeals);
-          updateCartCollection(meatMiniMeals);
+          addToCartCollection(shakes);
+          updateCartCollection(shakes);
         }}
       >
         Add
       </Button>
       <Button size="small" className="card-price" sx={{ color: "red" }}>
-        {meatMiniMeals.price + " " + "KR"}
+        {shakes.price + " " + "KR"}
       </Button>
     </CardActions>
   </Card>
   );
 };
 
-export default MeatMiniMeals;
+export default Shakes;

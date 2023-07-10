@@ -75,74 +75,54 @@ export default function PermanentDrawerRight() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            backgroundColor: "#f4e9d3",
+            backgroundColor: " #35464f;",
           },
         }}
         variant="permanent"
         anchor="right"
       >
         <Toolbar />
-
-        <img
-          className="logo-cart"
-          src="https://www.thebigkahuna.gr/images/parallax/logobigkahuna.png"
-          alt=""
-        />
+        <div className="cart-container">
+          <img
+            className="logo-cart"
+            src="https://www.thebigkahuna.gr/images/parallax/logobigkahuna.png"
+            alt=""
+          />
+        </div>
         <h6 className="my-order">My order:</h6>
-        {/* <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
-        <Divider />
+
         {productCard}
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}     <Typography sx={{ padding: 1 }}>Summa:
-      {cartList.reduce((total, product) => total + product.price, 0)}
-      </Typography>
-      
+
+        <Typography sx={{ padding: 1, color: " #f4e9d3" }}>
+          Summa:
+          {cartList.reduce((total, product) => total + product.price, 0)}
+        </Typography>
         <Divider />
-        <Box className="cartbuttons-container" >
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: " rgba(000000, 0, 0, 0.8);",
-            ":hover": { bgcolor: "black ;" },
-            // ml: "10px",
-            borderRadius: "0",
-          }}
-        >
-          Handla mer
-        </Button>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: " rgba(000000, 0, 0, 0.8);",
-            ":hover": { bgcolor: "black ;" },
-            borderRadius: "0",
-          }}
-        >
-          Till kassan{" "}
-        </Button>
-      </Box>
-        
+        <Box className="cartbuttons-container">
+          <Button
+            onClick={handleClickMenu}
+            variant="contained"
+            sx={{
+              bgcolor: " #f4e9d3",
+              color: "#35464f;",
+              ":hover": { bgcolor: " #f4e9d3" },
+              borderRadius: "0",
+            }}
+          >
+            Order more
+          </Button>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: " #f4e9d3",
+              color: "#35464f;",
+              ":hover": { bgcolor: " #f4e9d3" },
+              borderRadius: "0",
+            }}
+          >
+            To checkout{" "}
+          </Button>
+        </Box>
       </Drawer>
     </Box>
   );
