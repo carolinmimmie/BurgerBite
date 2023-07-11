@@ -43,11 +43,11 @@ export const addToCartCollection = async (product: IMenu) => {
     price: product.price,
     product: product.product,
     subcategory: product.subcategory,
+    quantity: +1,
   });
   console.log();
   // getAllProducts();
 };
-
 
 export const deleteFromCart = async (id: string) => {
   await deleteDoc(doc(CartCollectionRef, id));

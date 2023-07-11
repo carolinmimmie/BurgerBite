@@ -1,6 +1,7 @@
 import { Dispatch } from "react";
 
 interface IMenu {
+  gty: number;
   id: string;
   category: string;
   description: string;
@@ -21,5 +22,6 @@ interface IContext {
 interface IProductCard {
   product: IMenu;
 }
+
 
 export type { IMenu, IContext, IProductCard };

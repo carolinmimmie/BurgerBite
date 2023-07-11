@@ -60,6 +60,8 @@
 
   .productcard-container {
     color: #f4e9d3;
+    margin-left: 7px;
+    margin-right: 7px;
   }
   button {
     background-color: #35464f;
@@ -177,7 +179,11 @@
     justify-content: space-between;
     gap: 1rem;
   }
-  .productcard-container {
-    margin: 15px;
+
+  .productcard-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

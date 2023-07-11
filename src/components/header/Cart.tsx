@@ -26,11 +26,15 @@ export default function PermanentDrawerRight() {
   const handleClickBack = () => {
     navigationBack(-1);
   };
+
   let navigationMenu = useNavigate();
   const handleClickMenu = () => {
     navigationMenu("/MainMenu");
   };
+
   const { productList, cartList } = useContext(Context);
+
+  const amount = cartList.reduce((total, product) => total + product.price,0);
 
   const productCard = cartList.map((x) => (
     <ProductCard product={x}></ProductCard>
@@ -90,14 +94,18 @@ export default function PermanentDrawerRight() {
           />
         </div>
         <h6 className="my-order">My order:</h6>
+        <div className="my-order">
+          {cartList.length === 0 && (
+            <div>Select the category and products you want to order.</div>
+          )}
+        </div>
 
         {productCard}
 
         <Typography sx={{ padding: 1, color: " #f4e9d3" }}>
-          Summa:
-          {cartList.reduce((total, product) => total + product.price, 0)}
+          Amount:
+          {amount.toFixed(2) + " SEK"}
         </Typography>
-        <Divider />
         <Box className="cartbuttons-container">
           <Button
             onClick={handleClickMenu}

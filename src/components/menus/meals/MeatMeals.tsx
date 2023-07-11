@@ -16,6 +16,7 @@ const MeatMeals = ({ meatMeals }: IProps) => {
     const newArray: IMenu[] = [...cartList, meatMeals];
     setCartList(newArray);
   };
+
   return (
     <Card className="card-container">
       <CardMedia
