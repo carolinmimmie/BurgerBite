@@ -1,3 +1,7 @@
+# Genomgång av projekt i form av restaurangkassa självbetjäning
+
+![image info](readme-ps/1.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
