@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
@@ -24,6 +24,17 @@ const ProductCard = ({ product }: IProps) => {
     await deleteFromCart(id);
     setCartList(await getCartCollection());
   };
+
+  // const checkQuantity = (product: string) => {
+
+  //   const exists = cartList.findIndex((x) => x.product === product);
+
+  //   if (exists > -1) {
+  //     return setQuantity( + 2 );
+  //   } else {
+  //   }
+  // };
+
   const {
     unOrderedProduct,
     productList,
@@ -32,10 +43,27 @@ const ProductCard = ({ product }: IProps) => {
     setCartList,
   } = useContext(Context);
 
-  // const updateCartCollection = (product: IMenu) => {
-  //   const newArray: IMenu[] = [...cartList, product];
-  //   setCartList(newArray);
+  const [quantity, setQuantity] = useState(1);
+
+  // const increase = (product: string) => {
+
+  //   const exists = cartList.findIndex((x) => x.product === product);
+  //   if (exists > -1) {
+  //         return    setQuantity(quantity + 1);
+  //       } else {
+  //         }
+  //       };
+
+  //   // Multiply quantity by amount
+  //   const result = amount * (quantity + 1);
+  //   // Do something with the result
   // };
+  const increase = () => {
+    setQuantity(quantity + 1);
+  };
+  const remove = () => {
+    setQuantity(quantity - 1);
+  };
 
   return (
     <div className="productcard-container">
@@ -46,9 +74,9 @@ const ProductCard = ({ product }: IProps) => {
           </div>
           <div className="productcard-row">
             <div>{product.price.toFixed(2)} SEK</div>
-            <button>-</button>
-            {cartList.length}
-            <button>+</button>
+            <button onClick={remove}>-</button>
+            {quantity}
+            <button onClick={increase}>+</button>
             <button
               onClick={() => {
                 dFromCart(product.id);

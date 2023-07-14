@@ -43,7 +43,6 @@ const MainMenu = () => {
 
   return (
     <div className="container">
-      {/* <AppBar></AppBar> */}
       <PermanentDrawerRight></PermanentDrawerRight>
       <div className="menu-container">
         <Card sx={{ maxWidth: 345 }} onClick={handleClickMeals}>

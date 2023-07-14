@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import { IMenu } from "../../../interfaces";
 import Context from "../../../context/Context";
-import { addToCartCollection } from "../../../Api";
+import { addToCartCollection, ordered } from "../../../Api";
 interface IProps {
   meatBurgers: IMenu;
 }
@@ -36,6 +36,7 @@ const MeatBurgers = ({ meatBurgers }: IProps) => {
           className="card-product"
           size="small"
           onClick={() => {
+            ordered(meatBurgers)
             addToCartCollection(meatBurgers);
             updateCartCollection(meatBurgers);
           }}

@@ -35,6 +35,7 @@ export const getCartCollection = async () => {
   }));
 };
 
+//FUNKTIONERNA
 export const addToCartCollection = async (product: IMenu) => {
   await addDoc(CartCollectionRef, {
     category: product.category,
@@ -46,10 +47,33 @@ export const addToCartCollection = async (product: IMenu) => {
     quantity: +1,
   });
   console.log();
-  // getAllProducts();
+
+  getCartCollection();
 };
 
 export const deleteFromCart = async (id: string) => {
   await deleteDoc(doc(CartCollectionRef, id));
+  
+
   // getCartCollection();
+  // getAllProducts();
 };
+
+export const ordered = async (x: IMenu) => {
+  await updateDoc(doc(AllProductsCollectionRef, x.id), {
+    ordered: !x.ordered,
+  });
+};
+
+export const test = async (x: IMenu) => {
+  await updateDoc(doc(CartCollectionRef, x.subcategory), {
+ 
+    
+
+   
+  });
+};
+
+
+
+

@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import Context from "../../../context/Context";
-import { addToCartCollection } from "../../../Api";
+import { addToCartCollection, ordered } from "../../../Api";
 interface IProps {
   sodas: IMenu;
 }
@@ -35,10 +35,11 @@ const Soda = ({ sodas }: IProps) => {
       </CardContent>
       <CardActions className="card-content">
         <Button
-          sx={{ color: "#35464f" }}
+           sx={{ color: "#009900" }}
           className="card-product"
           size="small"
           onClick={() => {
+            ordered(sodas)
             addToCartCollection(sodas);
             updateCartCollection(sodas);
           }}

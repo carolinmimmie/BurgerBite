@@ -1,7 +1,6 @@
 import { Dispatch } from "react";
 
 interface IMenu {
-  gty: number;
   id: string;
   category: string;
   description: string;
@@ -9,6 +8,7 @@ interface IMenu {
   price: number;
   product: string;
   subcategory: string;
+  quantity: number;
 }
 
 interface IContext {

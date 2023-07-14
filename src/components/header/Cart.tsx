@@ -32,9 +32,14 @@ export default function PermanentDrawerRight() {
     navigationMenu("/MainMenu");
   };
 
+  let navigationCheckOut = useNavigate();
+  const handleClickCheckOut = () => {
+    navigationCheckOut("/CheckOut");
+  };
   const { productList, cartList } = useContext(Context);
 
-  const amount = cartList.reduce((total, product) => total + product.price,0);
+  const amount = cartList.reduce((total, product) => total + product.price, 0);
+  
 
   const productCard = cartList.map((x) => (
     <ProductCard product={x}></ProductCard>
@@ -94,7 +99,7 @@ export default function PermanentDrawerRight() {
           />
         </div>
         <h6 className="my-order">My order:</h6>
-        <div className="my-order">
+        <div className="my-order-text">
           {cartList.length === 0 && (
             <div>Select the category and products you want to order.</div>
           )}
@@ -103,8 +108,8 @@ export default function PermanentDrawerRight() {
         {productCard}
 
         <Typography sx={{ padding: 1, color: " #f4e9d3" }}>
-          Amount:
-          {amount.toFixed(2) + " SEK"}
+          Total amount:
+          {" " + amount.toFixed(2) + " SEK"}
         </Typography>
         <Box className="cartbuttons-container">
           <Button
@@ -120,6 +125,7 @@ export default function PermanentDrawerRight() {
             Order more
           </Button>
           <Button
+            onClick={handleClickCheckOut}
             variant="contained"
             sx={{
               bgcolor: " #f4e9d3",

@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import Context from "../../../context/Context";
-import { addToCartCollection } from "../../../Api";
+import { addToCartCollection, ordered } from "../../../Api";
 interface IProps {
     dips: IMenu;
 }
@@ -37,6 +37,7 @@ const Dips = ({ dips }: IProps) => {
           className="card-product"
           size="small"
           onClick={() => {
+            ordered(dips)
             addToCartCollection(dips);
             updateCartCollection(dips);
           }}

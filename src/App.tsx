@@ -14,6 +14,7 @@ import MiniMeals from "./components/menus/minimeals/MiniMeals";
 import { ContextProvider } from "./context/Context";
 import Meals from "./components/menus/meals/Meals";
 import Snacks from "./components/menus/snacks/Snacks";
+import CheckOut from "./components/checkout/CheckOut";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Snacks" element={<Snacks></Snacks>} />
           <Route path="/Drinks" element={<Drinks></Drinks>} />
           <Route path="/Desserts" element={<Desserts></Desserts>} />
+          <Route path="/CheckOut" element={<CheckOut></CheckOut>} />
         </Routes>
       </BrowserRouter>
       </ContextProvider>

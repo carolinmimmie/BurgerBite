@@ -10,19 +10,19 @@ const Burgers = () => {
   const { productList } = useContext(Context);
 
   const meatBurgers = productList
-    .filter((x) => x.subcategory === "Meat")
+    .filter((x) => x.category === "Burgers" && x.subcategory === "Meat")
     .map((x) => <MeatBurgers meatBurgers={x}></MeatBurgers>);
 
   const chickenBurgers = productList
-    .filter((x) => x.subcategory === "Chicken")
+    .filter((x) => x.category === "Burgers" && x.subcategory === "Chicken")
     .map((x) => <ChickenBurgers chickenBurgers={x}></ChickenBurgers>);
 
   const fishBurgers = productList
-    .filter((x) => x.subcategory === "Fish")
+    .filter((x) => x.category === "Burgers" && x.subcategory === "Fish")
     .map((x) => <FishBurgers fishBurgers={x}></FishBurgers>);
 
   const vegetarianBurgers = productList
-    .filter((x) => x.subcategory === "Vegetarian")
+    .filter((x) => x.category === "Burgers" && x.subcategory === "Vegetarian")
     .map((x) => <VegetarianBurgers vegetarianBurgers={x}></VegetarianBurgers>);
 
   return (

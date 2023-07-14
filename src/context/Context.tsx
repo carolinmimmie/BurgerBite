@@ -32,11 +32,11 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
       // Andra kollektionen
       const cartItems = await getCartCollection();
       setCartList(cartItems);
+      console.log(cartList);
     };
 
-    
     fetchProducts();
-   
+    
   }, []);
 
   const orderedProduct = (id: string) => {
@@ -46,9 +46,13 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
       }
       return x;
     });
-    setProductList(updatedProductsList);
+    setCartList(updatedProductsList);
     console.log(updatedProductsList);
   };
+
+
+
+
   const unOrderedProduct = (id: string) => {
     const updatedProductsList = productList.map((x) => {
       if (id === x.id) {
@@ -56,9 +60,10 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
       }
       return x;
     });
-    setProductList(updatedProductsList);
+    setCartList(updatedProductsList);
     console.log(updatedProductsList);
   };
+
 
   return (
     <Context.Provider

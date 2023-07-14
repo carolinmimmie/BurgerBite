@@ -6,13 +6,15 @@ import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, CardActions } from "@mui/material";
 import { IMenu } from "../../../interfaces";
 import Context from "../../../context/Context";
-import { addToCartCollection } from "../../../Api";
+import { IProductCard } from "../../../interfaces";
+import { addToCartCollection, ordered } from "../../../Api";
 interface IProps {
   chickenBurgers: IMenu;
 }
 
+const quantity = 0;
 const ChickenBurgers = ({ chickenBurgers }: IProps) => {
-  const { cartList, setCartList } = useContext(Context);
+  const { cartList, setCartList, setProductList } = useContext(Context);
   const updateCartCollection = (chickenBurgers: IMenu) => {
     const newArray: IMenu[] = [...cartList, chickenBurgers];
     setCartList(newArray);
@@ -33,17 +35,20 @@ const ChickenBurgers = ({ chickenBurgers }: IProps) => {
         <Typography variant="body2">{chickenBurgers.description}</Typography>
       </CardContent>
       <CardActions className="card-content">
-        <Button
-          sx={{ color: "#009900" }}
-          className="card-product"
-          size="small"
-          onClick={() => {
-            addToCartCollection(chickenBurgers);
-            updateCartCollection(chickenBurgers);
-          }}
-        >
-          Add
-        </Button>
+        {quantity === 0 ? (
+          <Button
+            sx={{ color: "#009900" }}
+            className="card-product"
+            size="small"
+            onClick={() => {
+              ordered(chickenBurgers)
+              addToCartCollection(chickenBurgers);
+              updateCartCollection(chickenBurgers);
+            }}
+          >
+            Add 
+          </Button>
+        ) : null}
         <Button size="small" className="card-price" sx={{ color: "red" }}>
           {chickenBurgers.price + " " + "KR"}
         </Button>
