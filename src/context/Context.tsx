@@ -25,15 +25,15 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [productList, setProductList] = useState<IMenu[]>([]);
   const [cartList, setCartList] = useState<IMenu[]>([]);
   //Hämtar alla
+  const fetchProducts = async () => {
+    const products = await getAllProducts();
+    setProductList(products);
+    // Andra kollektionen
+    const cartItems = await getCartCollection();
+    setCartList(cartItems);
+    console.log(cartList);
+  };
   useEffect(() => {
-    const fetchProducts = async () => {
-      const products = await getAllProducts();
-      setProductList(products);
-      // Andra kollektionen
-      const cartItems = await getCartCollection();
-      setCartList(cartItems);
-      console.log(cartList);
-    };
 
     fetchProducts();
     
