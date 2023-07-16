@@ -15,9 +15,11 @@ const MeatBurgers = ({ meatBurgers }: IProps) => {
     const newArray: IMenu[] = [...cartList, meatBurgers];
     setCartList(newArray);
   };
+
   return (
     <Card className="card-container">
-      <CardMedia sx={{ width: 200, margin: "auto" }}
+      <CardMedia
+        sx={{ width: 200, margin: "auto" }}
         className="card-image"
         component="img"
         alt="green iguana"
@@ -32,11 +34,11 @@ const MeatBurgers = ({ meatBurgers }: IProps) => {
       </CardContent>
       <CardActions className="card-content">
         <Button
-            sx={{ color: "#009900" }}
+          sx={{ color: "#009900" }}
           className="card-product"
           size="small"
           onClick={() => {
-            ordered(meatBurgers)
+            ordered(meatBurgers);
             addToCartCollection(meatBurgers);
             updateCartCollection(meatBurgers);
           }}

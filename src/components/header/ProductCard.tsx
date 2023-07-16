@@ -25,16 +25,6 @@ const ProductCard = ({ product }: IProps) => {
     setCartList(await getCartCollection());
   };
 
-  // const checkQuantity = (product: string) => {
-
-  //   const exists = cartList.findIndex((x) => x.product === product);
-
-  //   if (exists > -1) {
-  //     return setQuantity( + 2 );
-  //   } else {
-  //   }
-  // };
-
   const {
     unOrderedProduct,
     productList,
@@ -43,21 +33,10 @@ const ProductCard = ({ product }: IProps) => {
     setCartList,
   } = useContext(Context);
 
+
+  // const test = cartList.reduce((total, product) => total + product.quantity, 0);
   const [quantity, setQuantity] = useState(1);
 
-  // const increase = (product: string) => {
-
-  //   const exists = cartList.findIndex((x) => x.product === product);
-  //   if (exists > -1) {
-  //         return    setQuantity(quantity + 1);
-  //       } else {
-  //         }
-  //       };
-
-  //   // Multiply quantity by amount
-  //   const result = amount * (quantity + 1);
-  //   // Do something with the result
-  // };
   const increase = () => {
     setQuantity(quantity + 1);
   };

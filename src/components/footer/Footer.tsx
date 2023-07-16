@@ -51,8 +51,8 @@ const Footer = () => {
         <div className="payment-icon">
           <img
             className="payment-img"
-            src="https://www.svgrepo.com/show/508701/mastercard-full.svg"
-            alt="Icon-bild mastercard"
+            src="https://images.ctfassets.net/zrqoyh8r449h/7taM7P2vHzWdGUE5VIm4ou/ba9ff9d11fe33dac9a170cf7d8e2468c/Swish_Logo_Primary_Dark-BG_P3.png?w=600"
+            alt="Icon-bild swish"
           />
         </div>
         <div className="payment-icon">

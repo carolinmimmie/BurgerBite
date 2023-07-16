@@ -15,7 +15,8 @@ const Landingpage = () => {
         src="https://www.thebigkahuna.gr/images/parallax/logobigkahuna.png"
         alt=""
       />
-      <h6 className="landingpage-text">KLICKA HÄR FÖR ATT STARTA</h6>
+      <h6 className="landingpage-text">
+Click here to order</h6>
     </div>
   );
 };

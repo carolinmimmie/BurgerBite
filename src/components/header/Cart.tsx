@@ -39,6 +39,7 @@ export default function PermanentDrawerRight() {
   const { productList, cartList } = useContext(Context);
 
   const amount = cartList.reduce((total, product) => total + product.price, 0);
+
   
 
   const productCard = cartList.map((x) => (

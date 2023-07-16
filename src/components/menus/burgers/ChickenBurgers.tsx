@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -19,6 +19,7 @@ const ChickenBurgers = ({ chickenBurgers }: IProps) => {
     const newArray: IMenu[] = [...cartList, chickenBurgers];
     setCartList(newArray);
   };
+
   return (
     <Card className="card-container">
       <CardMedia
@@ -41,12 +42,12 @@ const ChickenBurgers = ({ chickenBurgers }: IProps) => {
             className="card-product"
             size="small"
             onClick={() => {
-              ordered(chickenBurgers)
+              ordered(chickenBurgers);
               addToCartCollection(chickenBurgers);
               updateCartCollection(chickenBurgers);
             }}
           >
-            Add 
+            Add
           </Button>
         ) : null}
         <Button size="small" className="card-price" sx={{ color: "red" }}>

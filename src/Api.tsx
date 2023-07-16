@@ -44,7 +44,7 @@ export const addToCartCollection = async (product: IMenu) => {
     price: product.price,
     product: product.product,
     subcategory: product.subcategory,
-    quantity: +1,
+    quantity: 1,
   });
   console.log();
 
@@ -53,27 +53,19 @@ export const addToCartCollection = async (product: IMenu) => {
 
 export const deleteFromCart = async (id: string) => {
   await deleteDoc(doc(CartCollectionRef, id));
-  
 
-  // getCartCollection();
-  // getAllProducts();
+  getCartCollection();
 };
 
 export const ordered = async (x: IMenu) => {
   await updateDoc(doc(AllProductsCollectionRef, x.id), {
     ordered: !x.ordered,
   });
+  getCartCollection();
 };
+
+
 
 export const test = async (x: IMenu) => {
-  await updateDoc(doc(CartCollectionRef, x.subcategory), {
- 
-    
-
-   
-  });
+  await updateDoc(doc(CartCollectionRef, x.subcategory), {});
 };
-
-
-
-

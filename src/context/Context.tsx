@@ -25,18 +25,20 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [productList, setProductList] = useState<IMenu[]>([]);
   const [cartList, setCartList] = useState<IMenu[]>([]);
   //Hämtar alla
-  const fetchProducts = async () => {
-    const products = await getAllProducts();
-    setProductList(products);
-    // Andra kollektionen
-    const cartItems = await getCartCollection();
-    setCartList(cartItems);
-    console.log(cartList);
+ const fetchProducts = async () => {
+    //Hämta ProductList
+    setProductList(await getAllProducts());
   };
   useEffect(() => {
-
     fetchProducts();
-    
+  }, []);
+
+  const fetchCartList = async () => {
+    //Hämta cartList
+    setCartList(await getCartCollection());
+  };
+  useEffect(() => {
+    fetchCartList();
   }, []);
 
   const orderedProduct = (id: string) => {
@@ -50,9 +52,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     console.log(updatedProductsList);
   };
 
-
-
-
   const unOrderedProduct = (id: string) => {
     const updatedProductsList = productList.map((x) => {
       if (id === x.id) {
@@ -63,7 +62,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
     setCartList(updatedProductsList);
     console.log(updatedProductsList);
   };
-
 
   return (
     <Context.Provider
