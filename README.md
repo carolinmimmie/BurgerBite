@@ -9,9 +9,23 @@
 ![dryckesmeny](readme-ps/4.png)
 ![checkout](readme-ps/5.png)
 
-# To start the application, run the following command:
-### `npm install`
-### `npm start`
+## Installation
+
+To use this application, clone this git repository by running the following command in your terminal:
+
+```bash
+git clone https://github.com/carolinmimmie/BurgerBites.git
+
+cd BurgerBites
+
+code .
+
+## Getting Started
+
+npm install
+npm start
+Open [http://localhost:3000] with your browser to see the result.
+
 
 # Important!
 ### This project makes use of media queries to emulate an iPad. Adjust the browser's width to experience the responsive design.
